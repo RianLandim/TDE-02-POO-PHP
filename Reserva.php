@@ -1,13 +1,22 @@
 <?php 
+require('Voo.php');
+require('./Rota.php');
+require('./Aeronave.php');
+
 class gerenciarReservas {
   private $numeroDaReserva;
   private $dataHora;
   private $numeroDoAssento;
-  private $numeroDoVoo;
-  private $origemEDestinoDoVoo;
+  private $voo;
   private $classeDaCabine;
 
-  public function __construct() {}
+  public function __construct($numeroDaReserva, $dataHora, $numeroDoAssento, $voo, $classeDaCabine) {
+    $this->numeroDaReserva = $numeroDaReserva;
+    $this->dataHora = $dataHora;
+    $this->numeroDoAssento = $numeroDoAssento;
+    $this -> voo = $voo;
+    $this -> classeDaCabine = $classeDaCabine;
+  }
 
   public function setNumeroDaReserva($numeroDaReserva) {
     $this->numeroDaReserva = $numeroDaReserva;
@@ -33,19 +42,12 @@ class gerenciarReservas {
     return $this->numeroDoAssento;
   }
 
-  public function setNumeroDoVoo($numeroDoVoo) {
-    $this -> numeroDoVoo = $numeroDoVoo;
+  public function setVoo($voo) {
+    $this -> voo = $voo;
   }
 
-  public function getNumeroDoVoo() {
-    return $this->numeroDoVoo;
-  }
-  public function setOrigemEDestinoDoVoo($origemEDestinoDoVoo) {
-    $this -> origemEDestinoDoVoo = $origemEDestinoDoVoo;
-  }
-
-  public function getOrigemEDestinoDoVoo() {
-    return $this->origemEDestinoDoVoo;
+  public function getVoo() {
+    return $this->voo;
   }
   public function setClasseDaCabine($classeDaCabine) {
     $this -> classeDaCabine = $classeDaCabine;
@@ -55,5 +57,28 @@ class gerenciarReservas {
     return $this->classeDaCabine;
   }
 }
+
+$aeronave = new Aeronave('BOING 737', '2020', 100, '');
+$rota = new Rotas(1, "1000 KM", "Fortaleza", "Crato");
+
+$voo = new Voo(
+  1,
+  date('m/d/Y h:i:s a', time()),
+  date('m/d/Y h:i:s a', time()),
+  $rota,
+  $aeronave,
+  ''
+);
+
+
+$reserva = new gerenciarReservas(
+  1,
+  date('m/d/Y h:i:s a', time()),
+  8,
+  $voo,
+  "Premium"
+);
+
+var_dump($reserva);
 
 ?>
