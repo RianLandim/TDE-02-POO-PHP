@@ -1,11 +1,4 @@
 <?php 
-
-// Gerenciamento de reservas: O sistema deve permitir que os 
-//usuários façam reservas de voos operados pelas companhias
-// aéreas, e o administrador deve poder gerenciar essas
-//reservas, cancelando-as ou alterando-as, se necessário.
-
-
 class gerenciarReservas {
   private $numeroDaReserva;
   private $dataHora;

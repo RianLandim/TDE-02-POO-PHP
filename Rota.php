@@ -39,10 +39,5 @@ class Rotas{
     public function getDestino($destino){
         return  $this -> destino;
     }
-
 }
-
-$rotas1 = new Rotas(001, "1000 KM", "Fortaleza", "Crato");
-
-echo $rotas1;
 ?>
