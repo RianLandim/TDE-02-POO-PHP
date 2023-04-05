@@ -37,7 +37,7 @@ class gerenciarReservas {
   }
 
   public function getNumeroDoAssento() {
-    return $this->numeroDoAcento;
+    return $this->numeroDoAssento;
   }
 
   public function setNumeroDoVoo($numeroDoVoo) {
