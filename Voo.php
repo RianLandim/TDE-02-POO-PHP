@@ -1,7 +1,7 @@
 <?php 
 
-  require('./Rota.php');
-  require('./Aeronave.php');
+  require_once('./Rota.php');
+  require_once('./Aeronave.php');
 
   class Voo {
     private $id;
@@ -81,6 +81,4 @@
     $aeronave,
     ''
   );
-
-  var_dump($voo);
 ?>

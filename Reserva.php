@@ -1,9 +1,9 @@
-<?php 
-require('Voo.php');
-require('./Rota.php');
-require('./Aeronave.php');
+<?php
+require_once('./Voo.php');
+require_once('./Rota.php');
+require_once('./Aeronave.php');
 
-class gerenciarReservas {
+class Reserva {
   private $numeroDaReserva;
   private $dataHora;
   private $numeroDoAssento;
@@ -58,6 +58,7 @@ class gerenciarReservas {
   }
 }
 
+
 $aeronave = new Aeronave('BOING 737', '2020', 100, '');
 $rota = new Rotas(1, "1000 KM", "Fortaleza", "Crato");
 
@@ -70,8 +71,7 @@ $voo = new Voo(
   ''
 );
 
-
-$reserva = new gerenciarReservas(
+$reserva = new Reserva(
   1,
   date('m/d/Y h:i:s a', time()),
   8,
