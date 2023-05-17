@@ -7,6 +7,14 @@ class Checkin {
   private $peso_bagagem_de_mao;
   private $voo_id;
 
+  public function __construct($malas, $peso_das_malas, $peso_bagagem_de_mao, $voo_id)
+  {
+    $this->$malas = $malas;
+    $this->$peso_das_malas = $peso_das_malas;
+    $this->$peso_bagagem_de_mao = $peso_bagagem_de_mao;
+    $this->$voo_id = $voo_id;
+  }
+
   public function setId ($id) {
     $this -> id = $id;
   }
@@ -48,10 +56,4 @@ class Checkin {
   }
   
 }
-
-$checkin = new Checkin();
-$checkin->setId("10");
-$checkin->setPeso_malas("20kg");
-echo $checkin->getId()."\n".$checkin->getPeso_malas();
-
 ?>
