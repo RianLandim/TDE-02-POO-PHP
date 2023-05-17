@@ -2,11 +2,11 @@
 
 class VooDAO {
     public function create (Voo $voo) {
-        $sql = 'INSERT INTO Voo (saida, chegada, rota) VALUES (?,?,?)';
+        $sql = 'INSERT INTO Voo (saida, chegada, rota_id) VALUES (?,?,?)';
         $stmt = Conexao::getConn() -> prepare($sql);
         $stmt->bindValue(1, '25/05/2022');
         $stmt->bindValue(2, '25/05/2022');
-        $stmt->bindValue(3, 'SBJU');
+        $stmt->bindValue(3, 1);
 
         $stmt -> execute();
     }

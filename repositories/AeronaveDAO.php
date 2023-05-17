@@ -3,7 +3,7 @@
 class AeronaveDAO {
 
     public function create (Aeronave $aeronave) {
-        $sql = 'INSERT INTO Aeronave (modelo, ano_fabricação, numero_assentos, outras_informações) VALUES (?,?,?,?)';
+        $sql = 'INSERT INTO Aeronave (modelo, ano_fabricacao, numero_assentos, outras_informacoes) VALUES (?,?,?,?)';
         $stmt = Conexao::getConn()->prepare($sql);
         $stmt->bindValue(1, $aeronave->getmodelo());
         $stmt->bindValue(2, $aeronave->getano_fabricação());
@@ -29,7 +29,7 @@ class AeronaveDAO {
     }
 
     public function update(Aeronave $aeronave) {
-        $sql = 'UPDATE aeronave SET modelo  = ?, ano_fabircação = ?, numero_assentos = ? WHERE id = ?';
+        $sql = 'UPDATE aeronave SET modelo  = ?, ano_fabricacao = ?, numero_assentos = ? WHERE id = ?';
         $stmt = Conexao::getConn()->prepare($sql);
         $stmt->bindValue(1, $aeronave->getmodelo());
         $stmt->bindValue(2, $aeronave->getano_fabricação());
