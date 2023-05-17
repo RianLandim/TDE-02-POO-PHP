@@ -11,8 +11,7 @@
     private $aeronave;
     private $tripulacao;    
     
-    public function __construct($id, $saida, $chegada, $rota, $aeronave, $tripulacao) {
-      $this->id = $id;
+    public function __construct($saida, $chegada, $rota, $aeronave, $tripulacao) {
       $this->saida = $saida;
       $this->chegada = $chegada;
       $this->rota = $rota;
@@ -70,15 +69,4 @@
   }
 
 
-  $aeronave = new Aeronave('BOING 737', '2020', 100, '');
-  $rota = new Rotas(1, "1000 KM", "Fortaleza", "Crato");
-
-  $voo = new Voo(
-    1,
-    date('m/d/Y h:i:s a', time()),
-    date('m/d/Y h:i:s a', time()),
-    $rota,
-    $aeronave,
-    ''
-  );
 ?>

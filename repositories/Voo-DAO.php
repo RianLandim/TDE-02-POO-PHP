@@ -1,15 +1,12 @@
 <?php
 
 class VooDAO {
-    public function create (Voo $filme) {
-        $sql = 'INSERT INTO Voo (id, saida, chagada, rota, aeronave, tripulacao) VALUES (?,?,?)';
+    public function create () {
+        $sql = 'INSERT INTO Voo (saida, chegada, rota) VALUES (?,?,?)';
         $stmt = Conexao::getConn() -> prepare($sql);
-        $stmt = bindValue(1, $voo->getId());
-        $stmt = bindValue(2, $voo->getSaida());
-        $stmt = bindValue(3, $voo->getChegada());
-        $stmt = bindValue(4, $voo->getRota());
-        $stmt = bindValue(5, $voo->getAeronave());
-        $stmt = bindValue(6, $voo->getTripulacao());
+        $stmt->bindValue(1, '25/05/2022');
+        $stmt->bindValue(2, '25/05/2022');
+        $stmt->bindValue(3, 'SBJU');
 
         $stmt -> execute();
     }
