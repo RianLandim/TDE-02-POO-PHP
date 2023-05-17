@@ -4,15 +4,14 @@ class Aeronave {
   private $ano_fabricacao;
   private $numero_assentos;
   private $outras_informacoes;
-  private $id
+  private $id;
 
   
-  public function __construct($modelo, $ano_fabricacao, $numero_assentos, $outras_informacoes, $id) {
+  public function __construct($modelo, $ano_fabricacao, $numero_assentos, $outras_informacoes) {
     $this->modelo = $modelo;
     $this->ano_fabricacao = $ano_fabricacao;
     $this->numero_assentos = $numero_assentos;
     $this->outras_informacoes = $outras_informacoes;
-    $this->id =$id;
   }
 
   public function getModelo() {

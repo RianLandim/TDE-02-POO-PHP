@@ -1,0 +1,69 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Rota {
+  id        Int    @id @default(autoincrement())
+  distancia String
+  partida   String
+  destingo  String
+  voo       Voo[]
+}
+
+model Aeronave {
+  id                 Int    @id @default(autoincrement())
+  model              String
+  ano_fabricacao     Int
+  numero_assentos    Int
+  outras_informacoes String
+  voo                Voo[]
+}
+
+model Tripulacao {
+  id      Int    @id @default(autoincrement())
+  nome    String
+  funcao  String
+  horario String
+  voo     Voo[]
+}
+
+model Reserva {
+  id           Int     @id @default(autoincrement())
+  cancelada_as String?
+  Voo          Voo?    @relation(fields: [voo_id], references: [id])
+  voo_id       Int?
+}
+
+model Voo {
+  id            Int         @id @default(autoincrement())
+  saida         String
+  chegada       String
+  tripulacao    Tripulacao? @relation(fields: [tripulacao_id], references: [id])
+  tripulacao_id Int?
+  Rota          Rota?       @relation(fields: [rota_id], references: [id])
+  rota_id       Int?
+  Aeronave      Aeronave?   @relation(fields: [aeronave_id], references: [id])
+  aeronave_id   Int?
+
+  checkIn Checkin[]
+  reserva Reserva[]
+}
+
+model Checkin {
+  id                  Int     @id @default(autoincrement())
+  malas               Int
+  peso_malas          Float
+  bagagem_de_mao      Boolean
+  peso_bagagem_de_mao Float
+
+  Voo    Voo? @relation(fields: [voo_id], references: [id])
+  voo_id Int?
+}

@@ -1,7 +1,7 @@
 <?php
 
 class VooDAO {
-    public function create () {
+    public function create (Voo $voo) {
         $sql = 'INSERT INTO Voo (saida, chegada, rota) VALUES (?,?,?)';
         $stmt = Conexao::getConn() -> prepare($sql);
         $stmt->bindValue(1, '25/05/2022');

@@ -1,0 +1,25 @@
+{
+  "name": "tde-02-poo-php",
+  "version": "1.0.0",
+  "description": "![UML](/1bc463b8-48d2-4d04-8241-7a1a51841dcc.jpeg)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RianLandim/TDE-02-POO-PHP.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RianLandim/TDE-02-POO-PHP/issues"
+  },
+  "homepage": "https://github.com/RianLandim/TDE-02-POO-PHP#readme",
+  "devDependencies": {
+    "prisma": "^4.14.0"
+  },
+  "dependencies": {
+    "@prisma/client": "^4.14.0"
+  }
+}

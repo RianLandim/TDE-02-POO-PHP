@@ -1,5 +1,6 @@
 <?php
 class Tripulacao {
+  private $id;
   private $nome;
   private $funcao;
   private $horario;
@@ -9,6 +10,10 @@ class Tripulacao {
     $this->nome = $nome;
     $this->funcao = $funcao;
     $this->horario = $horario;
+  }
+
+  public function getId() {
+    return $this->id;
   }
 
   public function getNome() {
@@ -21,6 +26,10 @@ class Tripulacao {
 
     public function getHorario() {
     return $this->horario;
+  }
+
+  public function setId($id) {
+    $this->id = $id;
   }
 
   public function setNome($nome) {

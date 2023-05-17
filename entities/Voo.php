@@ -7,16 +7,16 @@
     private $id;
     private $saida;
     private $chegada;
-    private $rota;
-    private $aeronave;
-    private $tripulacao;    
+    private $rotaId;
+    private $aeronaveId;
+    private $tripulacaoId;    
     
-    public function __construct($saida, $chegada, $rota, $aeronave, $tripulacao) {
+    public function __construct($saida, $chegada, $rotaId, $aeronaveId, $tripulacaoId) {
       $this->saida = $saida;
       $this->chegada = $chegada;
-      $this->rota = $rota;
-      $this->aeronave = $aeronave;
-      $this->tripulacao = $tripulacao;
+      $this->rotaId = $rotaId;
+      $this->aeronaveId = $aeronaveId;
+      $this->tripulacaoId = $tripulacaoId;
     }
 
     public function setId($id) {
@@ -43,12 +43,12 @@
       return $this->chegada;
     }
 
-    public function setRota($rota) {
-      $this->rota = $rota;
+    public function setRotaId($rotaId) {
+      $this->rotaId = $rotaId;
     }
 
-    public function getRota() {
-      return $this->rota;
+    public function getRotaId() {
+      return $this->rotaId;
     }
 
     public function setAeronave($aeronave) {
@@ -59,12 +59,12 @@
       return $this->aeronave;
     }
 
-    public function setTripulacao($tripulacao) {
-      $this->tripulacao = $tripulacao;
+    public function setTripulacaoId($tripulacaoId) {
+      $this->tripulacaoId = $tripulacaoId;
     }
 
-    public function getTripulacao() {
-      return $this->tripulacao;
+    public function getTripulacaoId() {
+      return $this->tripulacaoId;
     }
   }
 

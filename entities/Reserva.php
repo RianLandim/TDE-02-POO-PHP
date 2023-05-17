@@ -7,15 +7,15 @@ class Reserva {
   private $numeroDaReserva;
   private $dataHora;
   private $numeroDoAssento;
-  private $voo;
+  private $vooId;
   private $classeDaCabine;
 
-  public function __construct($numeroDaReserva, $dataHora, $numeroDoAssento, $voo, $classeDaCabine) {
+  public function __construct($numeroDaReserva, $dataHora, $numeroDoAssento, $vooId, $classeDaCabine) {
     $this->numeroDaReserva = $numeroDaReserva;
     $this->dataHora = $dataHora;
     $this->numeroDoAssento = $numeroDoAssento;
-    $this -> voo = $voo;
-    $this -> classeDaCabine = $classeDaCabine;
+    $this->vooId = $vooId;
+    $this->classeDaCabine = $classeDaCabine;
   }
 
   public function setNumeroDaReserva($numeroDaReserva) {
@@ -42,12 +42,12 @@ class Reserva {
     return $this->numeroDoAssento;
   }
 
-  public function setVoo($voo) {
-    $this -> voo = $voo;
+  public function setVoo($vooId) {
+    $this -> vooId = $vooId;
   }
 
   public function getVoo() {
-    return $this->voo;
+    return $this->vooId;
   }
   public function setClasseDaCabine($classeDaCabine) {
     $this -> classeDaCabine = $classeDaCabine;
@@ -57,28 +57,5 @@ class Reserva {
     return $this->classeDaCabine;
   }
 }
-
-
-$aeronave = new Aeronave('BOING 737', '2020', 100, '');
-$rota = new Rotas(1, "1000 KM", "Fortaleza", "Crato");
-
-$voo = new Voo(
-  1,
-  date('m/d/Y h:i:s a', time()),
-  date('m/d/Y h:i:s a', time()),
-  $rota,
-  $aeronave,
-  ''
-);
-
-$reserva = new Reserva(
-  1,
-  date('m/d/Y h:i:s a', time()),
-  8,
-  $voo,
-  "Premium"
-);
-
-var_dump($reserva);
 
 ?>
