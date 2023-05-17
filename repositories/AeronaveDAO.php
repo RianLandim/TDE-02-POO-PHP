@@ -9,6 +9,7 @@ class AeronaveDAO {
         $stmt->bindValue(2, $aeronave->getano_fabricação());
         $stmt->bindValue(3, $aeronave->getnumero_assentos());
         $stmt->bindvalue(4, $aeronave->getoutras_informações());
+        $stmt->bindvalue(5, $id->getid());
 
         $stmt->execute();
     }
@@ -34,6 +35,7 @@ class AeronaveDAO {
         $stmt->bindValue(2, $aeronave->getano_fabricação());
         $stmt->bindValue(3, $aeronave->getnumero_assentos());
         $stmt->bindvalue(4 ,$aeronave->getoutras_informações());
+        $stmt->bindvalue(5, $id->getid());
 
         $stmt->execute();
     }
