@@ -2,11 +2,13 @@
 
 class VooDAO {
     public function create (Voo $voo) {
-        $sql = 'INSERT INTO Voo (saida, chegada, rota_id) VALUES (?,?,?)';
+        $sql = 'INSERT INTO Voo (saida, chegada, rota_id, aeronave_id, tripulacao_id) VALUES (?,?,?,?,?)';
         $stmt = Conexao::getConn() -> prepare($sql);
-        $stmt->bindValue(1, '25/05/2022');
-        $stmt->bindValue(2, '25/05/2022');
-        $stmt->bindValue(3, 1);
+        $stmt->bindValue(1, $voo->getSaida());
+        $stmt->bindValue(2, $voo->getChegada());
+        $stmt->bindValue(3, $voo->getRotaId());
+        $stmt->bindValue(4, $voo->getAeronaveId());
+        $stmt->bindValue(5, $voo->getTripulacaoId());
 
         $stmt -> execute();
     }
@@ -31,9 +33,9 @@ class VooDAO {
         $stmt->bindValue(1, $voo->getId());
         $stmt->bindValue(2, $voo->getSaida());
         $stmt->bindValue(3, $voo->getChegada());
-        $stmt->bindValue(4, $voo->getRota());
-        $stmt->bindValue(5, $voo->getAeronave());
-        $stmt->bindValue(6, $voo->getTripulacao());
+        $stmt->bindValue(4, $voo->getRotaId());
+        $stmt->bindValue(5, $voo->getAeronaveId());
+        $stmt->bindValue(6, $voo->getTripulacaoId());
 
         $stmt -> execute();
     }

@@ -3,13 +3,12 @@
 class AeronaveDAO {
 
     public function create (Aeronave $aeronave) {
-        $sql = 'INSERT INTO Aeronave (modelo, ano_fabricacao, numero_assentos, outras_informacoes) VALUES (?,?,?,?)';
+        $sql = 'INSERT INTO Aeronave (model, ano_fabricacao, numero_assentos, outras_informacoes) VALUES (?,?,?,?)';
         $stmt = Conexao::getConn()->prepare($sql);
         $stmt->bindValue(1, $aeronave->getmodelo());
-        $stmt->bindValue(2, $aeronave->getano_fabricação());
-        $stmt->bindValue(3, $aeronave->getnumero_assentos());
-        $stmt->bindvalue(4, $aeronave->getoutras_informações());
-        $stmt->bindvalue(5, $id->getid());
+        $stmt->bindValue(2, $aeronave->getAnoFabricacao());
+        $stmt->bindValue(3, $aeronave->getNumeroAssentos());
+        $stmt->bindvalue(4, $aeronave->getOutrasInformacoes());
 
         $stmt->execute();
     }
@@ -32,10 +31,10 @@ class AeronaveDAO {
         $sql = 'UPDATE aeronave SET modelo  = ?, ano_fabricacao = ?, numero_assentos = ? WHERE id = ?';
         $stmt = Conexao::getConn()->prepare($sql);
         $stmt->bindValue(1, $aeronave->getmodelo());
-        $stmt->bindValue(2, $aeronave->getano_fabricação());
-        $stmt->bindValue(3, $aeronave->getnumero_assentos());
-        $stmt->bindvalue(4 ,$aeronave->getoutras_informações());
-        $stmt->bindvalue(5, $id->getid());
+        $stmt->bindValue(2, $aeronave->getAnoFabricacao());
+        $stmt->bindValue(3, $aeronave->getNumeroAssentos());
+        $stmt->bindvalue(4 ,$aeronave->getOutrasInformacoes());
+        $stmt->bindvalue(5, $aeronave->getid());
 
         $stmt->execute();
     }

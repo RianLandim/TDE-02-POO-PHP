@@ -1,9 +1,14 @@
 <?php 
   require_once('./entities/Rota.php');
   require_once('./entities/Tripulacao.php');
+  require_once('./entities/Aeronave.php');
+  require_once('./entities/Checkin.php');
+  require_once('./entities/Voo.php');
   require_once('./repositories/Voo-DAO.php');
   require_once('./repositories/RotasDao.php');
   require_once('./repositories/TripulacaoDAO.php');
+  require_once('./repositories/AeronaveDAO.php');
+  require_once('./repositories/Checkin-DAO.php');
   require_once('./Conexao.php');
 
 
@@ -47,7 +52,7 @@
   $chegada = $_POST['chegada'];
 
   if($saida) {
-    $voo = new Voo($saida, $chegada, 1, 1, 1);
+    $voo = new Voo($saida, $chegada, 4, 3, 3);
 
     $vooDao =  new VooDAO();
     $vooDao->create($voo);
@@ -60,7 +65,7 @@
   
 
   if($malas) {
-    $checkin = new Checkin(intval($malas),doubleval($peso_das_malas), doubleval($peso_bagagem_de_mao), 1);
+    $checkin = new Checkin(intval($malas),doubleval($peso_das_malas), doubleval($peso_bagagem_de_mao), 5);
 
     $checkinDao = new CheckinDAO();
     $checkinDao->create($checkin);

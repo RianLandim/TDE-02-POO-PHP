@@ -1,8 +1,5 @@
 <?php 
 
-  require_once('./Rota.php');
-  require_once('./Aeronave.php');
-
   class Voo {
     private $id;
     private $saida;
@@ -51,12 +48,12 @@
       return $this->rotaId;
     }
 
-    public function setAeronave($aeronave) {
-      $this->aeronave = $aeronave;
+    public function setAeronave($aeronaveId) {
+      $this->aeronaveId = $aeronaveId;
     }
 
-    public function getAeronave() {
-      return $this->aeronave;
+    public function getAeronaveId() {
+      return $this->aeronaveId;
     }
 
     public function setTripulacaoId($tripulacaoId) {

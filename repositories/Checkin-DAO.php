@@ -2,15 +2,16 @@ c<?php
 
 class CheckinDAO {
     public function create (Checkin $checkin) {
-        $sql = 'INSERT INTO Checkin (id, malas, peso_das_malas, peso_bagagem_de_mao, voo_id) VALUES (?,?,?,?,?)';
-        $stmt = Conexao::getConn() -> prepare($sql);
-        $stmt->bindValue(1, $checkin->getId());
-        $stmt->bindValue(2, $checkin->getMalas());
-        $stmt->bindValue(3, $checkin->getPeso_malas());
-        $stmt->bindValue(4, $checkin->getPeso_mao());
-        $stmt->bindValue(5, $checkin->getVoo_id());
+      var_dump($checkin);
+      $sql = 'INSERT INTO Checkin (malas, peso_malas, peso_bagagem_de_mao, voo_id, bagagem_de_mao) VALUES (?,?,?,?,?)';
+      $stmt = Conexao::getConn() -> prepare($sql);
+      $stmt->bindValue(1, $checkin->getMalas());
+      $stmt->bindValue(2, $checkin->getPeso_malas());
+      $stmt->bindValue(3, $checkin->getPeso_mao());
+      $stmt->bindValue(4, $checkin->getVoo_id());
+      $stmt->bindValue(5, TRUE);
 
-        $stmt -> execute();
+      $stmt -> execute();
     }
 
     public function read(){
