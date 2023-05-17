@@ -2,7 +2,7 @@
 
 class RotasDao {
     public function create (Rotas $rotas) {
-        $sql = 'INSERT INTO Rotas (distancia, partida, destino) VALUES (?,?,?)';
+        $sql = 'INSERT INTO Rota (distancia, partida, destingo) VALUES (?,?,?)';
         $stmt = Conexao::getConn() -> prepare($sql);
         $stmt->bindValue(1, $rotas->getDistancia());
         $stmt->bindValue(2, $rotas->getPartida());
@@ -11,7 +11,7 @@ class RotasDao {
     }
 
     public function read(){
-        $sql = 'SELECT * FROM Rotas';
+        $sql = 'SELECT * FROM Rota';
 
         $stmt = Conexao:: getConn() -> prepare($sql);
         $stmt->execute();
@@ -25,7 +25,7 @@ class RotasDao {
     }
 
     public function update(Rotas $rotas) {
-        $sql = 'UPDATE rotas SET id = ?, distancia = ?, partida = ?, destino = ?';
+        $sql = 'UPDATE Rota SET id = ?, distancia = ?, partida = ?, destino = ?';
         $stmt = Conexao::getConn()-> prepare ($sql);
 
         $stmt->bindValue(1, $rotas->getId());
@@ -37,7 +37,7 @@ class RotasDao {
     }
 
     public function delete($id){
-        $sql = 'DELETE FROM Rotas WHERE id = ?';
+        $sql = 'DELETE FROM Rota WHERE id = ?';
         $stmt = Conexao::getConn() -> prepare ($sql);
         $stmt -> bindvalue(1, $id);
 

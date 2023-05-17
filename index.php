@@ -3,6 +3,7 @@
   require_once('./entities/Tripulacao.php');
   require_once('./repositories/Voo-DAO.php');
   require_once('./repositories/RotasDao.php');
+  require_once('./repositories/TripulacaoDAO.php');
   require_once('./Conexao.php');
 
 
@@ -10,21 +11,26 @@
   $partida = $_POST['partida'];
   $destino = $_POST['destino'];
 
-  $rota = new Rotas($distancia, $partida, $destino);
-  var_dump($rota);
+  if($distancia) {
+    $rota = new Rotas($distancia, $partida, $destino);
+    var_dump($rota);
+  
+    $rotasDao = new RotasDao();
+    $rotasDao->create($rota);
+  }
 
-  $rotasDao = new RotasDao();
-  $rotasDao->create($rota);
-
+  
   $nome = $_POST['name'];
   $funcao = $_POST['funcao'];
   $horario = $_POST['horario'];
-
-  $tripulacao = new Tripulacao($nome, $funcao, $horario);
-  var_dump($tripulacao);
-
-  $tripulacaoDao = new TripulacaoDAO();
-  $tripulacaoDao->create($tripulacao);
+  
+  if($nome) {
+    $tripulacao = new Tripulacao($nome, $funcao, $horario);
+    var_dump($tripulacao);
+  
+    $tripulacaoDao = new TripulacaoDAO();
+    $tripulacaoDao->create($tripulacao);
+  }
 
 ?>
 <DOCTYPE html>
@@ -90,7 +96,7 @@
       </fieldset>
 
       <fieldset>
-        <legend><span class="number">4</span>Check-In</legend>
+        <legend><span class="number">5RotasDao</span>Check-In</legend>
         <label for="name">Saida:</label>
         <input type="text" id="name" name="saida" />
 
@@ -102,7 +108,7 @@
       </fieldset>
 
       <fieldset>
-        <legend><span class="number">4</span>Reserva</legend>
+        <legend><span class="number">6</span>Reserva</legend>
         <label for="name">Saida:</label>
         <input type="text" id="name" name="saida" />
 
