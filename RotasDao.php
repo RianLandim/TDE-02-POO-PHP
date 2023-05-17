@@ -1,0 +1,48 @@
+<?php
+
+class RotasDao {
+    public function create (Rotas $rotas) {
+        $sql = 'INSERT INTO Rotas (id, distancia, partida, destino) VALUES (?,?,?,?)';
+        $stmt = Conexao::getConn() -> prepare($sql);
+        $stmt->bindValue(1, $rotas->getId());
+        $stmt->bindValue(2, $rotas->getDistancia());
+        $stmt->bindValue(3, $rotas->getPartida());
+        $stmt->bindValue(4, $rotas->getDestino());
+
+        $stmt -> execute();
+    }
+
+    public function read(){
+        $sql = 'SELECT * FROM Rotas';
+
+        $stmt = Conexao:: getConn() -> prepare($sql);
+        $stmt->execute();
+
+        if($stmt -> rowCount() > 0) {
+            $resultado = $stmt -> fetchAll(\PDO::FETCH_ASSOC);
+            return $resultado;
+        } else {
+            return [];
+        }
+    }
+
+    public function update(Rotas $rotas) {
+        $sql = 'UPDATE rotas SET id = ?, distancia = ?, partida = ?, destino = ?';
+        $stmt = Conexao::getConn()-> prepare ($sql);
+
+        $stmt->bindValue(1, $rotas->getId());
+        $stmt->bindValue(2, $rotas->getDistancia());
+        $stmt->bindValue(3, $rotas->getPartida());
+        $stmt->bindValue(4, $rotas->getDestino());
+
+        $stmt -> execute();
+    }
+
+    public function delete($id){
+        $sql = 'DELETE FROM Rotas WHERE id = ?';
+        $stmt = Conexao::getConn() -> prepare ($sql);
+        $stmt -> bindvalue(1, $id);
+
+        $stmt -> execute();
+    }
+}
