@@ -23,6 +23,9 @@
   $tripulacao = new Tripulacao($nome, $funcao, $horario);
   var_dump($tripulacao);
 
+  $tripulacaoDao = new TripulacaoDAO();
+  $tripulacaoDao->create($tripulacao);
+
 ?>
 <DOCTYPE html>
 <html>
@@ -76,6 +79,30 @@
 
       <fieldset>
         <legend><span class="number">4</span>Voo</legend>
+        <label for="name">Saida:</label>
+        <input type="text" id="name" name="saida" />
+
+        <label for="mail">Chegada:</label>
+        <input type="email" id="mail" name="chegada" />
+
+        <label for="password">Rota:</label>
+        <input type="password" id="password" name="rota" />
+      </fieldset>
+
+      <fieldset>
+        <legend><span class="number">4</span>Check-In</legend>
+        <label for="name">Saida:</label>
+        <input type="text" id="name" name="saida" />
+
+        <label for="mail">Chegada:</label>
+        <input type="email" id="mail" name="chegada" />
+
+        <label for="password">Rota:</label>
+        <input type="password" id="password" name="rota" />
+      </fieldset>
+
+      <fieldset>
+        <legend><span class="number">4</span>Reserva</legend>
         <label for="name">Saida:</label>
         <input type="text" id="name" name="saida" />
 
