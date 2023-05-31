@@ -1,5 +1,8 @@
 <?php
-class Rotas{
+
+namespace Entities;
+
+class Rota{
   private $id;
   private $distancia;
   private $partida;

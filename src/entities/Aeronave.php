@@ -1,4 +1,7 @@
 <?php
+
+namespace Entities;
+
 class Aeronave {
   private $modelo;
   private $ano_fabricacao;

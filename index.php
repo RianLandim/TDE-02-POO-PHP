@@ -18,7 +18,6 @@
 
   if($distancia) {
     $rota = new Rotas($distancia, $partida, $destino);
-    var_dump($rota);
   
     $rotasDao = new RotasDao();
     $rotasDao->create($rota);
@@ -31,7 +30,6 @@
   
   if($nome) {
     $tripulacao = new Tripulacao($nome, $funcao, $horario);
-    var_dump($tripulacao);
   
     $tripulacaoDao = new TripulacaoDAO();
     $tripulacaoDao->create($tripulacao);
@@ -58,18 +56,18 @@
     $vooDao->create($voo);
   }
 
-  $malas = $_POST['malas'];
-  $peso_das_malas = $_POST['peso_das_malas'];
-  $peso_bagagem_de_mao = $_POST['$peso_bagagem_de_mao'];
+  // $malas = $_POST['malas'];
+  // $peso_das_malas = $_POST['peso_das_malas'];
+  // $peso_bagagem_de_mao = $_POST['$peso_bagagem_de_mao'];
 
   
 
-  if($malas) {
-    $checkin = new Checkin(intval($malas),doubleval($peso_das_malas), doubleval($peso_bagagem_de_mao), 5);
+  // if($malas) {
+  //   $checkin = new Checkin(intval($malas),doubleval($peso_das_malas), doubleval($peso_bagagem_de_mao), 5);
 
-    $checkinDao = new CheckinDAO();
-    $checkinDao->create($checkin);
-  }
+  //   $checkinDao = new CheckinDAO();
+  //   $checkinDao->create($checkin);
+  // }
 
 ?>
 <DOCTYPE html>
